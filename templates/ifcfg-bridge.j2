@@ -3,10 +3,10 @@ ONBOOT={{ bridge_onboot }}
 BOOTPROTO={{ bridge_protocol }}
 DELAY={{ bridge_delay }}
 TYPE=Bridge
-{% if bridge_ip_addr %}
+{% if bridge_ip_addr is defined %}
 IPADDR=
 {% endif %}
-{% if bridge_netmask %}
+{% if bridge_netmask is defined %}
 NETMASK={{ bridge_netmask }}
 {% endif %}
 NM_CONTROLLED=no
