@@ -1,0 +1,5 @@
+---
+
+bridge_onboot: yes
+bridge_protocol: none
+bridge_delay: 0

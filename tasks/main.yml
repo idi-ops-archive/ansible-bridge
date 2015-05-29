@@ -1,0 +1,34 @@
+---
+
+- name: Install packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items: bridge_packages
+
+- name: Verify if bridge exists
+  command: "/usr/sbin/brctl show {{ bridge_name }}"
+  register: brctl_show
+  failed_when: false
+  changed_when: false
+
+- name: Configure bridge
+  template:
+    src: ifcfg-bridge.j2
+    dest: "/etc/sysconfig/network-scripts/ifcfg-{{ bridge_name }}"
+    mode: '0644'
+    owner: root
+    group: root
+  notify:
+    - restart networking
+
+- name: Configure bridge ports
+  template:
+    src: ifcfg-bridge-port.j2
+    dest: "/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
+    mode: '0644'
+    owner: root
+    group: root
+  with_items: bridge_ports
+  notify:
+    - restart networking
