@@ -23,12 +23,10 @@
     - restart networking
 
 - name: Configure bridge ports
-  template:
-    src: ifcfg-bridge-port.j2
+  lineinfile:
+    line: "BRIDGE={{ bridge_name }}"
+    regexp: "^BRIDGaE="
     dest: "/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
-    mode: '0644'
-    owner: root
-    group: root
   with_items: bridge_ports
   notify:
     - restart networking

@@ -1,5 +1,6 @@
 DEVICE={{ bridge_name }}
-ONBOOT={{ bridge_onboot }}
+ONBOOT={% if bridge_onboot %}yes{% endif %}
+
 BOOTPROTO={{ bridge_protocol }}
 DELAY={{ bridge_delay }}
 TYPE=Bridge
