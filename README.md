@@ -34,14 +34,3 @@ Example Playbook
          - role: bridge
            bridge_name: "br-public"
            bridge_ports: ["eth0"]
-
-License
--------
-
-MIT
-
-Author Information
-------------------
-
-Created by [Giovanni Tirloni](http://gtirloni.com)
-

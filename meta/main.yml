@@ -1,10 +1,10 @@
 ---
 galaxy_info:
-  author: Giovanni Tirloni
+  author: OCAD University
   description: Creates network bridges on Linux
-  company: Inclusive Design Research Centre
+  company: OCAD University
   license: MIT
-  min_ansible_version: 1.9
+  min_ansible_version: 2.0
   platforms:
   - name: EL
     versions:
